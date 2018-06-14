@@ -5,7 +5,6 @@
 %define debug_package %{nil}
 %define product_family Red Hat
 %define variant_titlecase CoreOS
-%define variant_titlecase_concat CoreOS
 %define variant_lowercase coreos
 %define release_pkg_version 20180515.0
 %define base_release_version 3
@@ -57,14 +56,11 @@ ln -s ../usr/lib/redhat-release %{buildroot}/etc/redhat-release
 cat << EOF >>%{buildroot}/usr/lib/os-release
 NAME="%{product_family}%{?variant_titlecase: %{variant_titlecase}}"
 VERSION="%{full_release_version}"
-ID="coreos"
+ID="rhcos"
 ID_LIKE="rhel fedora"
-VARIANT="CoreOS"
-VARIANT_ID=coreos
 VERSION_ID="%{full_release_version}"
 PRETTY_NAME="%{product_family}%{?variant_titlecase: %{variant_titlecase}} %{full_release_version}"
 ANSI_COLOR="0;31"
-CPE_NAME="cpe:/o:redhat:enterprise_linux:%{full_release_version}:%{?beta:beta}%{!?beta:GA}%{?variant_lowercase::%{variant_lowercase}}"
 HOME_URL="https://www.redhat.com/"
 BUG_REPORT_URL="https://bugzilla.redhat.com/"
 
