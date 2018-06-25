@@ -1,0 +1,8 @@
+# Since rpm-ostree gained support for triggering ConditionFirstBoot=, we have to use
+# presets here.
+# https://github.com/openshift/os/pull/135
+# https://github.com/projectatomic/rpm-ostree/pull/1425
+
+# Note at some point we'd like to disable docker
+enable docker.service
+enable docker-storage-setup.service
