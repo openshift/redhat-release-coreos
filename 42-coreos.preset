@@ -6,3 +6,6 @@
 # Note at some point we'd like to disable docker
 enable docker.service
 enable docker-storage-setup.service
+
+# Work around https://bugzilla.redhat.com/show_bug.cgi?id=1193590
+enable coreos-root-bash-profile-workaround.service

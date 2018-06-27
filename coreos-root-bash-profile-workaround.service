@@ -1,0 +1,15 @@
+[Unit]
+Description=Seed default bash profile for root
+Documentation=https://bugzilla.redhat.com/show_bug.cgi?id=1193590
+DefaultDependencies=no
+Before=sshd.service
+Before=systemd-user-sessions.service
+After=systemd-remount-fs.service
+ConditionFirstBoot=yes
+RequiresMountsFor=/var/roothome
+
+[Service]
+ExecStart=/bin/sh -c 'cp /etc/skel/.bash* /var/roothome'
+
+[Install]
+WantedBy=multi-user.target
