@@ -116,6 +116,10 @@ install -m 644 GPL %{buildroot}/%{_docdir}/redhat-release
 mkdir -p %{buildroot}/%{_prefix}/lib/systemd/system-preset/
 for x in *.preset; do install -m 0644 ${x} %{buildroot}/%{_prefix}/lib/systemd/system-preset/; done
 
+# copy systemd units
+mkdir -p %{buildroot}/%{_prefix}/lib/systemd/system/
+for x in *.service; do install -m 0644 ${x} %{buildroot}/%{_prefix}/lib/systemd/system/; done
+
 # let systemd handle core dumps
 # https://bugzilla.redhat.com/show_bug.cgi?id=1191045
 mkdir -p %{buildroot}%{_prefix}/lib/sysctl.d/
@@ -145,5 +149,6 @@ rm -rf %{buildroot}
 /etc/rpm/macros.dist
 %{_docdir}/redhat-release/*
 %{_datadir}/redhat-release/*
+%{_prefix}/lib/systemd/system/*.service
 %{_prefix}/lib/systemd/system-preset/*
 %{_prefix}/lib/sysctl.d/*
