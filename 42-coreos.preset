@@ -7,6 +7,9 @@
 enable docker.service
 enable docker-storage-setup.service
 
+# Enable the container runtime
+enable crio
+
 # Work around https://bugzilla.redhat.com/show_bug.cgi?id=1193590
 enable coreos-root-bash-profile-workaround.service
 # This one is from https://github.com/dustymabe/ignition-dracut
