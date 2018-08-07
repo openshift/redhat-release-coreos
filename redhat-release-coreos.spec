@@ -94,6 +94,18 @@ for file in RPM-GPG-KEY* ; do
     gpg --dearmor < $file > %{buildroot}/%{_datadir}/ostree/trusted.gpg.d/$file.gpg
 done
 
+# setup default PATH; pathmunge() will add the supplied value to the PATH
+# if it does not already exist
+# https://github.com/openshift/os/issues/191
+cat > %{buildroot}/etc/profile.d/path.sh <<EOF
+pathmunge /bin
+pathmunge /sbin
+pathmunge /usr/bin
+pathmunge /usr/sbin
+pathmunge /usr/local/bin
+pathmunge /usr/local/sbin
+EOF
+
 # set up the dist tag macros
 install -d -m 755 %{buildroot}/etc/rpm
 cat >> %{buildroot}/etc/rpm/macros.dist << EOF
@@ -144,6 +156,7 @@ rm -rf %{buildroot}
 %config(noreplace) /etc/issue
 %config(noreplace) /etc/issue.net
 %config(noreplace) /etc/systemd/system/brandbot.path
+%config(noreplace) /etc/profile.d/path.sh
 /etc/pki/rpm-gpg/
 %{_datadir}/ostree/trusted.gpg.d/*.gpg
 /etc/rpm/macros.dist
