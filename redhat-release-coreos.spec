@@ -7,9 +7,9 @@
 %define variant_titlecase CoreOS
 %define variant_lowercase coreos
 %define release_pkg_version 20180515.0
-%define base_release_version 3
-%define full_release_version 3.10
-%define dist_release_version 3
+%define base_release_version 7
+%define full_release_version 4.0
+%define dist_release_version 7
 # Fake this out; we need at least 7, since e.g. systemd has a dependency
 # on system-release > 7.2, etc.
 %define os_version 7.99
