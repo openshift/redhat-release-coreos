@@ -97,6 +97,7 @@ done
 # setup default PATH; pathmunge() will add the supplied value to the PATH
 # if it does not already exist
 # https://github.com/openshift/os/issues/191
+mkdir -p -m 755 %{buildroot}/etc/profile.d
 cat > %{buildroot}/etc/profile.d/path.sh <<EOF
 pathmunge /bin
 pathmunge /sbin
