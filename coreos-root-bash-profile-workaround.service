@@ -10,6 +10,7 @@ RequiresMountsFor=/var/roothome
 
 [Service]
 ExecStart=/bin/sh -c 'cp /etc/skel/.bash* /var/roothome'
+RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
