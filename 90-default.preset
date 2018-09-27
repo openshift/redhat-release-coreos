@@ -1,11 +1,12 @@
 # Also see:
 # https://fedoraproject.org/wiki/Starting_services_by_default
 
+disable systemd-timesyncd.service
+disable systemd-resolved.service
+
 # systemd
 enable remote-fs.target
 enable getty@tty1.service
-enable systemd-readahead-replay.service
-enable systemd-readahead-collect.service
 
 # System stuff
 enable sshd.service
@@ -55,12 +56,13 @@ enable qemu-guest-agent.service
 # https://bugzilla.redhat.com/show_bug.cgi?id=928726
 enable dnf-makecache.timer
 
-# https://bugzilla.redhat.com/show_bug.cgi?id=929403
-enable initial-setup-graphical.service
-enable initial-setup-text.service
-
 # https://bugzilla.redhat.com/show_bug.cgi?id=957135
 enable vmtoolsd.service
+
+# mcelog is a utility that collects and decodes Machine Check Exception data
+# on x86-32 and x86-64 systems.
+# https://bugzilla.redhat.com/show_bug.cgi?id=1302179
+enable mcelog.service
 
 #https://bugzilla.redhat.com/show_bug.cgi?id=995987
 enable kdump.service
@@ -71,6 +73,13 @@ enable tuned.service
 # https://bugzilla.redhat.com/show_bug.cgi?id=1215645
 enable unbound-anchor.timer
 
+# Enable SSSD Kerberos Credential Cache Server
+# https://bugzilla.redhat.com/show_bug.cgi?id=1558927
+enable sssd-kcm.socket
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=1578833
+enable sssd.service
+
 # Hardware
 enable gpm.*
 enable gpsd.*
@@ -78,7 +87,6 @@ enable irqbalance.service
 enable lm_sensors.service
 enable mcelog.*
 enable microcode.service
-enable acpid.*
 enable smartd.service
 enable pcscd.socket
 enable rngd.service
@@ -95,9 +103,6 @@ enable ksmtuned.service
 enable rootfs-resize.service
 enable sysstat.service
 enable uuidd.service
-enable xendomains.service
-enable xenstored.service
-enable xenconsoled.service
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1193616
 enable hypervfcopyd.service
@@ -131,6 +136,21 @@ enable rhsmcertd.service
 # https://bugzilla.redhat.com/show_bug.cgi?id=1359645
 enable brandbot.*
 
-# Enable ostree-remount on ostree-based systems
-# https://src.fedoraproject.org/rpms/ostree/pull-request/7
-enable ostree-remount.service
+# https://bugzilla.redhat.com/show_bug.cgi?id=1572550
+enable timedatex.service
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=1578870
+enable selinux-autorelabel-mark.service
+enable rhel-configure.service
+enable rhel-dmesg.service
+
+# https://github.com/fedora-sysv/initscripts/commit/37109fdf9808
+enable nis-domainname.service
+enable import-state.service
+enable loadmodules.service
+enable readonly-root.service
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=1630200
+# s390x specific services
+enable cpi.service
+enable device_cio_free.service
