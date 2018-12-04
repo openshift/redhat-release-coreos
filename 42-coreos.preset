@@ -3,10 +3,6 @@
 # https://github.com/openshift/os/pull/135
 # https://github.com/projectatomic/rpm-ostree/pull/1425
 
-# Note at some point we'd like to disable docker
-enable docker.service
-enable docker-storage-setup.service
-
 # Enable the container runtime
 enable crio.service
 
