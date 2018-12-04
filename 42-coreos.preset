@@ -10,3 +10,6 @@ enable crio.service
 enable coreos-root-bash-profile-workaround.service
 # This one is from https://github.com/dustymabe/ignition-dracut
 enable coreos-firstboot-complete.service
+
+# Displays boot status https://github.com/projectatomic/rpm-ostree/pull/1693
+enable rpm-ostree-bootstatus.service
