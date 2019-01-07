@@ -8,7 +8,10 @@ enable crio.service
 
 # Work around https://bugzilla.redhat.com/show_bug.cgi?id=1193590
 enable coreos-root-bash-profile-workaround.service
-# This one is from https://github.com/dustymabe/ignition-dracut
+# See https://github.com/dustymabe/ignition-dracut
+enable ignition-firstboot-complete.service
+# This was renamed in https://github.com/coreos/ignition-dracut/pull/30
+# but keep the old name to avoid required version sync
 enable coreos-firstboot-complete.service
 
 # Displays boot status https://github.com/projectatomic/rpm-ostree/pull/1693
