@@ -40,3 +40,4 @@ cp -a --reflink=auto fs %{buildroot}
 (cd %{buildroot} && find . -type f -o -type l | sed -e 's,^.,/,') > files.list
 
 %files -f files.list
+%dir /etc/issue.d

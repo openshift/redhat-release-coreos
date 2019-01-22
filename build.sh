@@ -31,12 +31,13 @@ ln -s ../usr/lib/os-release etc/os-release
 # Sadly grub2 still reads this
 ln -s ../usr/lib/os-release etc/system-release
 
-# create /etc/issue and /etc/issue.net
+# create /etc/issue, /etc/issue.net, and /etc/issue.d
 cat > usr/lib/issue <<'EOF'
 \S \S{VERSION_ID}
 EOF
 ln -sr usr/lib/issue etc/issue
 ln -sr usr/lib/issue etc/issue.net
+mkdir -p -m 755 etc/issue.d
 
 # combine GPG keys
 mkdir -p -m 755 etc/pki/rpm-gpg
