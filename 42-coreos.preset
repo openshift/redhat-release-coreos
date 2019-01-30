@@ -16,3 +16,7 @@ enable coreos-firstboot-complete.service
 
 # Displays boot status https://github.com/projectatomic/rpm-ostree/pull/1693
 enable rpm-ostree-bootstatus.service
+
+# Enable the pivot service to allow pivoting on first boot
+# See https://github.com/openshift/pivot/pull/25.
+enable pivot.service
