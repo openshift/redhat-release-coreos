@@ -7,9 +7,11 @@
 %define variant_titlecase CoreOS
 %define variant_lowercase coreos
 %define release_pkg_version 20180515.0
+%define openshift_release_version 400
 %define base_release_version 7
-%define full_release_version 4.0
 %define dist_release_version 7
+%define full_release_version %{openshift_release_version}.%{dist_release_version}.%{release_pkg_version}
+
 # Fake this out; we need at least 7, since e.g. systemd has a dependency
 # on system-release > 7.2, etc.
 %define os_version 7.99
@@ -17,8 +19,8 @@
 %define dist .el%{dist_release_version}
 
 Name:           redhat-release%{?variant_lowercase:-%{variant_lowercase}}
-Version:        %{full_release_version}
-Release:        %{release_pkg_version}.atomic%{?dist}.0
+Version:        %{openshift_release_version}
+Release:        %{base_release_version}.%{release_pkg_version}.atomic%{?dist}.0
 Summary:        %{product_family}%{?variant_titlecase: %{variant_titlecase}} release file
 Group:          System Environment/Base
 License:        GPLv2
