@@ -3,7 +3,7 @@
 # Be sure to look at changes upstream!
 
 %define debug_package %{nil}
-%define product_family Red Hat
+%define product_family Red Hat Enterprise Linux
 %define variant_titlecase CoreOS
 %define variant_lowercase coreos
 %define release_pkg_version 20180515.0
@@ -64,9 +64,9 @@ ANSI_COLOR="0;31"
 HOME_URL="https://www.redhat.com/"
 BUG_REPORT_URL="https://bugzilla.redhat.com/"
 
-REDHAT_BUGZILLA_PRODUCT="%{product_family} %{base_release_version}"
+REDHAT_BUGZILLA_PRODUCT="OpenShift Container Platform"
 REDHAT_BUGZILLA_PRODUCT_VERSION="%{full_release_version}"
-REDHAT_SUPPORT_PRODUCT="%{product_family}"
+REDHAT_SUPPORT_PRODUCT="OpenShift Container Platform"
 REDHAT_SUPPORT_PRODUCT_VERSION="%{full_release_version}"
 EOF
 ln -s ../usr/lib/os-release %{buildroot}/etc/os-release
