@@ -28,11 +28,11 @@ Source0:        redhat-release-%{variant_lowercase}-%{base_version}-4.tar.gz
 %setup -q -n redhat-release-%{base_release_version}
 
 %build
-make fs-ootpa
+make fs
 
 %install
 rm -rf %{buildroot}
-cp -a --reflink=auto fs-ootpa %{buildroot}
+cp -a --reflink=auto fs %{buildroot}
 
 (cd %{buildroot} && find . -type f -o -type l | sed -e 's,^.,/,') > files.list
 

@@ -1,12 +1,9 @@
-all: fs-ootpa
+all: fs
 
-fs-base:
-	./build-base.sh
-
-fs-ootpa: fs-base
-	./build-ootpa.sh
+fs:
+	./build.sh
 
 clean:
-	rm fs-{base,ootpa} -rf
+	rm fs -rf
 
 install:

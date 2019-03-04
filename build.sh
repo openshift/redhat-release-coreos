@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 set -xeuo pipefail
 srcdir=$(cd $(dirname $0) && pwd)
-rm fs-base fs-base.tmp -rf
-mkdir -p fs-base.tmp
-cd fs-base.tmp
+rm fs fs.tmp -rf
+mkdir -p fs.tmp
+cd fs.tmp
 
 base_release_version=7
 
@@ -86,4 +86,4 @@ mkdir -p etc/systemd/system
 ln -s /dev/null etc/systemd/system/brandbot.path
 
 cd ..
-mv fs-base.tmp fs-base
+mv fs.tmp fs
