@@ -6,6 +6,7 @@ mkdir -p fs.tmp
 cd fs.tmp
 
 base_release_version=8
+full_release_version=4.1
 
 mkdir -m 0755 -p usr/lib
 # create os-release
@@ -18,6 +19,11 @@ ID_LIKE="rhel fedora"
 ANSI_COLOR="0;31"
 HOME_URL="https://www.redhat.com/"
 BUG_REPORT_URL="https://bugzilla.redhat.com/"
+
+REDHAT_BUGZILLA_PRODUCT="OpenShift Container Platform"
+REDHAT_BUGZILLA_PRODUCT_VERSION="${full_release_version}"
+REDHAT_SUPPORT_PRODUCT="OpenShift Container Platform"
+REDHAT_SUPPORT_PRODUCT_VERSION="${full_release_version}"
 EOF
 mkdir -m 0755 -p etc
 ln -s ../usr/lib/os-release etc/os-release
