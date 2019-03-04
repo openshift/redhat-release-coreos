@@ -1,23 +1,29 @@
 #!/usr/bin/bash
 set -xeuo pipefail
 srcdir=$(cd $(dirname $0) && pwd)
-rm fs-base fs-base.tmp -rf
-mkdir -p fs-base.tmp
-cd fs-base.tmp
+rm fs fs.tmp -rf
+mkdir -p fs.tmp
+cd fs.tmp
 
-base_release_version=7
+base_release_version=8
+full_release_version=4.1
 
 mkdir -m 0755 -p usr/lib
 # create os-release
 cat << EOF > usr/lib/os-release
-NAME="Red Hat CoreOS"
+NAME="Red Hat Enterprise Linux CoreOS"
 VERSION="48"
-PRETTY_NAME="Red Hat CoreOS 48 (Ootpa)"
+PRETTY_NAME="Red Hat Enterprise Linux CoreOS 48 (Ootpa)"
 ID="rhcos"
 ID_LIKE="rhel fedora"
 ANSI_COLOR="0;31"
 HOME_URL="https://www.redhat.com/"
 BUG_REPORT_URL="https://bugzilla.redhat.com/"
+
+REDHAT_BUGZILLA_PRODUCT="OpenShift Container Platform"
+REDHAT_BUGZILLA_PRODUCT_VERSION="${full_release_version}"
+REDHAT_SUPPORT_PRODUCT="OpenShift Container Platform"
+REDHAT_SUPPORT_PRODUCT_VERSION="${full_release_version}"
 EOF
 mkdir -m 0755 -p etc
 ln -s ../usr/lib/os-release etc/os-release
@@ -86,4 +92,4 @@ mkdir -p etc/systemd/system
 ln -s /dev/null etc/systemd/system/brandbot.path
 
 cd ..
-mv fs-base.tmp fs-base
+mv fs.tmp fs
