@@ -5,7 +5,7 @@ rm fs fs.tmp -rf
 mkdir -p fs.tmp
 cd fs.tmp
 
-base_release_version=7
+base_release_version=8
 
 mkdir -m 0755 -p usr/lib
 # create os-release
