@@ -6,7 +6,7 @@
 %define product_family Red Hat Enterprise Linux
 %define variant_titlecase CoreOS
 %define variant_lowercase coreos
-%define release_pkg_version 20180515.0
+%define release_pkg_version 20190305.0
 %define base_release_version 7
 %define full_release_version 4.0
 %define dist_release_version 7
