@@ -12,8 +12,9 @@ mkdir -m 0755 -p usr/lib
 # create os-release
 cat << EOF > usr/lib/os-release
 NAME="Red Hat Enterprise Linux CoreOS"
-VERSION="48"
-PRETTY_NAME="Red Hat Enterprise Linux CoreOS 48 (Ootpa)"
+VERSION="${full_release_version}"
+VERSION_ID="${full_release_version}"
+PRETTY_NAME="Red Hat Enterprise Linux CoreOS ${full_release_version} (Ootpa)"
 ID="rhcos"
 ID_LIKE="rhel fedora"
 ANSI_COLOR="0;31"
