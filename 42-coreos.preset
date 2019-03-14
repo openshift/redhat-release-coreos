@@ -16,3 +16,7 @@ enable coreos-firstboot-complete.service
 
 # Displays boot status https://github.com/projectatomic/rpm-ostree/pull/1693
 enable rpm-ostree-bootstatus.service
+
+# For platforms that need boot checkin
+# https://github.com/coreos/coreos-metadata/pull/147
+enable coreos-metadata-checkin.service
