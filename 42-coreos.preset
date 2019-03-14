@@ -20,3 +20,7 @@ enable rpm-ostree-bootstatus.service
 # For platforms that need boot checkin
 # https://github.com/coreos/coreos-metadata/pull/147
 enable coreos-metadata-checkin.service
+
+# Enable the pivot service to allow pivoting on first boot
+# See https://github.com/openshift/pivot/pull/25.
+enable pivot.service
