@@ -74,11 +74,12 @@ ln -s ../usr/lib/os-release %{buildroot}/etc/os-release
 echo "cpe:/o:redhat:enterprise_linux:%{full_release_version}:%{?beta:beta}%{!?beta:GA}%{?variant_lowercase::%{variant_lowercase}}" | tr [A-Z] [a-z] > %{buildroot}/usr/lib/system-release-cpe
 ln -s ../usr/lib/system-release-cpe %{buildroot}/etc/system-release-cpe
 
-# create /etc/issue and /etc/issue.net
+# create /etc/issue, /etc/issue.net, and /etc/issue.d
 echo '\S' > %{buildroot}/etc/issue
 echo 'Kernel \r on an \m' >> %{buildroot}/etc/issue
 cp %{buildroot}/etc/issue %{buildroot}/etc/issue.net
 echo >> %{buildroot}/etc/issue
+mkdir -p %{buildroot}/etc/issue.d
 
 # combine GPG keys
 cat RPM-GPG-KEY-redhat-release-2 RPM-GPG-KEY-redhat-auxiliary > RPM-GPG-KEY-redhat-release
@@ -156,6 +157,7 @@ rm -rf %{buildroot}
 %config /etc/system-release-cpe
 %config(noreplace) /etc/issue
 %config(noreplace) /etc/issue.net
+%dir /etc/issue.d
 %config(noreplace) /etc/systemd/system/brandbot.path
 %config(noreplace) /etc/profile.d/path.sh
 /etc/pki/rpm-gpg/
