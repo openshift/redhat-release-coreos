@@ -3,12 +3,15 @@
 # Be sure to look at changes upstream!
 
 %define debug_package %{nil}
+%define product_family Red Hat Enterprise Linux
+%define variant_titlecase CoreOS
+%define variant_lowercase coreos
 %define base_version 8
 # Fake this out; we also use 8 here, matching the maipo's use of 7.
 %define os_version 8.99
 %define dist .el%{version}
 
-Name:           redhat-release-coreos-ootpa
+Name:           redhat-release-coreos
 Version:        48
 Release:        1%{?dist}
 Summary:        %{product_family}%{?variant_titlecase: %{variant_titlecase}} release file
@@ -25,7 +28,7 @@ Source0:        redhat-release-%{variant_lowercase}-%{base_version}-4.tar.gz
 %{summary}
 
 %prep
-%setup -q -n redhat-release-%{base_release_version}
+%setup -q -n redhat-release-%{base_version}
 
 %build
 make fs
