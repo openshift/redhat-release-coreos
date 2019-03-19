@@ -9,7 +9,7 @@
 %define base_version 8
 # Fake this out; we also use 8 here, matching the maipo's use of 7.
 %define os_version 8.99
-%define dist .el%{version}
+%define dist .el%{base_version}
 
 Name:           redhat-release-coreos
 Version:        48
