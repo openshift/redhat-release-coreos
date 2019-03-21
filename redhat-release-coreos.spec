@@ -13,7 +13,7 @@
 
 Name:           redhat-release-coreos
 Version:        48
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        %{product_family}%{?variant_titlecase: %{variant_titlecase}} release file
 Group:          System Environment/Base
 License:        GPLv2
