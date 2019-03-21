@@ -50,6 +50,11 @@ for file in etc/pki/rpm-gpg/RPM-GPG-KEY* ; do
     gpg --dearmor < $file > usr/share/ostree/trusted.gpg.d/$(basename ${file}).gpg
 done
 
+# write out redhat-release
+echo "Red Hat Enterprise Linux CoreOS release ${full_release_version}" > usr/lib/redhat-release
+ln -sf ../usr/lib/redhat-release etc/system-release
+ln -sf ../usr/lib/redhat-release etc/redhat-release
+
 # setup default PATH; pathmunge() will add the supplied value to the PATH
 # if it does not already exist
 # https://github.com/openshift/os/issues/191
