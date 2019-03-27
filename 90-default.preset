@@ -13,7 +13,6 @@ enable sshd.service
 enable atd.*
 enable crond.*
 enable chronyd.service
-enable rpcbind.*
 enable NetworkManager.service
 enable NetworkManager-dispatcher.service
 enable ModemManager.service
@@ -76,9 +75,6 @@ enable unbound-anchor.timer
 # Enable SSSD Kerberos Credential Cache Server
 # https://bugzilla.redhat.com/show_bug.cgi?id=1558927
 enable sssd-kcm.socket
-
-# https://bugzilla.redhat.com/show_bug.cgi?id=1578833
-enable sssd.service
 
 # Hardware
 enable gpm.*
@@ -145,7 +141,6 @@ enable rhel-configure.service
 enable rhel-dmesg.service
 
 # https://github.com/fedora-sysv/initscripts/commit/37109fdf9808
-enable nis-domainname.service
 enable import-state.service
 enable loadmodules.service
 enable readonly-root.service
