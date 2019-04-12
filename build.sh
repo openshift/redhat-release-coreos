@@ -73,9 +73,9 @@ install -d -m 755 etc/rpm
 cat >> etc/rpm/macros.dist << EOF
 # dist macros.
 
-%%rhel ${base_release_version}
-%%dist %dist
-%%el${base_release_version} 1
+%rhel ${base_release_version}
+%dist .el8
+%el${base_release_version} 1
 EOF
 
 # use unbranded datadir
